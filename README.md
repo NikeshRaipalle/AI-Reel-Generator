@@ -31,10 +31,10 @@ AI_reels_maker/
 1. Clone the repo:
 
    bash
-   git clone https://github.com/YOUR_USERNAME/AI_reels_maker.git
+   https://github.com/NikeshRaipalle/AI-Reel-Generator.git
    cd AI_reels_maker
 
-2. Create virtual environment & install dependencies:
+3. Create virtual environment & install dependencies:
 
    bash
    python -m venv venv
@@ -44,13 +44,13 @@ AI_reels_maker/
    pip install -r requirements.txt
    ```
 
-3. Run the app:
+4. Run the app:
 
    bash
    python app.py
    ```
 
-4. Open in browser:
+5. Open in browser:
    http://127.0.0.1:5000/
    ```
 
