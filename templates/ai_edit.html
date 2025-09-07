@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}AI-Powered Editing - AI Reel Generator{% endblock %}
+
+{% block content %}
+<section class="ai-edit-section">
+    <div class="container">
+        <h1>AI-Powered Editing</h1>
+        <p>Enhance your reels with AI-powered editing features</p>
+        
+        <div class="enhancement-options">
+            <form action="/ai-edit" method="post" class="enhancement-form">
+                <div class="form-group">
+                    <label for="reel_id">Select Reel to Enhance:</label>
+                    <select name="reel_id" id="reel_id" class="form-control" required>
+                        <option value="">Choose a reel...</option>
+                        {% for reel in reels %}
+                        <option value="{{ reel }}">{{ reel }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="enhancement">Enhancement Type:</label>
+                    <select name="enhancement" id="enhancement" class="form-control" required>
+                        <option value="brightness">Auto Brightness & Contrast</option>
+                        <option value="speed">Smart Speed Adjustment</option>
+                        <option value="color">Color Enhancement</option>
+                        <option value="stabilize">Video Stabilization</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Enhance Reel</button>
+            </form>
+        </div>
+        
+        <div class="features-info">
+            <h3>AI Enhancement Features:</h3>
+            <ul>
+                <li><strong>Auto Brightness:</strong> Automatically adjusts brightness and contrast</li>
+                <li><strong>Smart Speed:</strong> Optimizes playback speed for engagement</li>
+                <li><strong>Color Enhancement:</strong> Improves color saturation and vibrancy</li>
+                <li><strong>Video Stabilization:</strong> Reduces camera shake and jitter</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+.ai-edit-section {
+    padding: 50px 0;
+    min-height: 80vh;
+}
+
+.enhancement-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.features-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.features-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.features-info li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+</style>
+{% endblock %}

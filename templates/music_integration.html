@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Music Integration - AI Reel Generator{% endblock %}
+
+{% block content %}
+<section class="music-section">
+    <div class="container">
+        <h1>Music Integration</h1>
+        <p>Add trending music and sound effects to your reels</p>
+        
+        <form action="/music-integration" method="post" class="music-form">
+            <div class="form-group">
+                <label for="reel_id">Select Reel:</label>
+                <select name="reel_id" id="reel_id" class="form-control" required>
+                    <option value="">Choose a reel...</option>
+                    {% for reel in reels %}
+                    <option value="{{ reel }}">{{ reel }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="music_type">Music Style:</label>
+                <select name="music_type" id="music_type" class="form-control" required>
+                    <option value="upbeat">Upbeat & Energetic</option>
+                    <option value="chill">Chill & Relaxed</option>
+                    <option value="ambient">Ambient Background</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="volume">Music Volume:</label>
+                <input type="range" name="volume" id="volume" min="0.1" max="1.0" step="0.1" value="0.3" class="volume-slider">
+                <span class="volume-display">30%</span>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Add Music</button>
+        </form>
+    </div>
+</section>
+
+<style>
+.music-section {
+    padding: 50px 0;
+    min-height: 80vh;
+}
+
+.music-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.volume-slider {
+    width: 80%;
+    margin-right: 10px;
+}
+
+.volume-display {
+    font-weight: bold;
+    color: #667eea;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+</style>
+
+<script>
+document.getElementById('volume').addEventListener('input', function() {
+    const value = Math.round(this.value * 100);
+    document.querySelector('.volume-display').textContent = value + '%';
+});
+</script>
+{% endblock %}

@@ -1,0 +1,2 @@
+file 'cat5.jpeg'
+ duration 1

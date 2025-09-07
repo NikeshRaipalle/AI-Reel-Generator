@@ -1,0 +1,4 @@
+file 'cat1.jpeg'
+ duration 1
+file 'cat2.jpeg'
+ duration 1
